@@ -1,0 +1,5 @@
+# First yml load then properties
+key : Ro
+arr : rohit,mane
+list: rohit,mane
+mapper: '{k1:1, k2:2}'
