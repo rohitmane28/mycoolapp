@@ -1,1 +1,2 @@
 # mycoolapp
+# SpringBoot application
