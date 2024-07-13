@@ -27,7 +27,7 @@ public class FunRestController {
 	
 	@GetMapping("/")
 	public String sayHello() {
-		return "Hello "+ arr[0] +" "+ list.get(1) + "! Time on server is " + LocalDateTime.now() + " " 
+		return "Hello Mr. "+ arr[0] +" "+ list.get(1) + "! Time on server is " + LocalDateTime.now() + " " 
 	+ mapper.get("k2");
 	}
 	
