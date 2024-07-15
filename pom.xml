@@ -45,6 +45,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>mycoolapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
