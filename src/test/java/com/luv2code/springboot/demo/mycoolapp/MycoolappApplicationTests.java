@@ -12,7 +12,7 @@ public class MycoolappApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		boolean flag = 5 > 3;
+		boolean flag = 3 > 5;
 		assertEquals(flag , true);
 	}
 
