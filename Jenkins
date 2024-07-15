@@ -1,0 +1,40 @@
+pipeline 
+{
+    agent any
+
+    tools 
+	{
+        maven "M3"
+    }
+
+    stages 
+	{
+        stage('Build') 
+		{
+            steps {
+                
+                git branch: 'main', changelog: false, credentialsId: '7fa7df48-3bb7-41af-aa33-638ad28e3185', poll: false, url: 'https://github.com/rohitmane28/mycoolapp.git'
+
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }            
+        }
+        stage('Test')
+        {
+            steps{
+                bat "mvn test"
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
+        stage('Deploy')
+        {
+            steps{
+               deploy adapters: [tomcat9(credentialsId: '9b9b5c0e-c953-4d5b-8406-1d15949cab55', path: '', url: 'http://localhost:8080/')], contextPath: null, war: '**/*.war'
+            }
+        }
+        
+    }
+}
